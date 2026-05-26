@@ -26,12 +26,38 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
+# Three-layer architecture configuration
 models:
   cursor_poc:
-    # Config indicated by + and applies to all files under models/example/
+    # Bronze Layer - Raw data from sources
+    bronze:
+      +schema: _sources
+      +materialized: view
+      
+    # Silver Layer - Cleaned and standardized data
+    silver:
+      +schema: _silver
+      +materialized: table
+      
+    # Gold Layer - Business-ready data
+    gold:
+      +schema: _gold
+      +materialized: table
+      
+      # Gold sub-folders for different data types
+      dimensions:
+        +schema: _gold
+        +materialized: table
+        
+      facts:
+        +schema: _gold
+        +materialized: table
+        
+      marts:
+        +schema: _gold
+        +materialized: table
+    
+    # Legacy example folder (can be removed later)
     example:
       +materialized: view
 
