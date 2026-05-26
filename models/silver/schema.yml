@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_distribution_centers
+  - name: stg_events
+  - name: stg_inventory_items
+  - name: stg_order_items
+  - name: stg_orders
+  - name: stg_products
+  - name: stg_users
+
+
+
+
+
+
+
+
+
+

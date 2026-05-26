@@ -1,0 +1,4 @@
+# Bronze layer - Raw data from sources
+# Schema: _sources
+# Materialization: view
+

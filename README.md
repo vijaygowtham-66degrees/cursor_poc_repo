@@ -12,7 +12,7 @@ This project showcases:
 
 ## Prerequisites
 
-- dbt Core 1.9.5+ installed
+- dbt Core 1.11.11+ installed
 - Google Cloud Platform account with BigQuery access
 - Service account key file for authentication
 
